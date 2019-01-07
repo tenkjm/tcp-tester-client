@@ -1,0 +1,9 @@
+<h1>Request List</h1>
+
+<ul>
+  <li *ngFor="let socketRequest of socketRequests">
+    <a [routerLink]="['/socketRequests/', socketRequest.id]">{{socketRequest.name}}</a>
+    <input [(ngModel)]="socketRequest.name" >
+  </li>
+</ul>
+
