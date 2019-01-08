@@ -16,13 +16,13 @@ export class WebsocketService {
     public send(message: Object): void {
         
         this.socket.emit( 'my event', JSON.stringify({
-            user_name : 1,
-            message : 2222222222222
+            user : "1",
+            rq : "2222222222222"
           }) )
     }
     public onMessage(): Rx.Observable<Object> {
         return new Rx.Observable<Object>(observer => {
-            this.socket.on('message', (data: Object) => observer.next(data));
+            this.socket.on('my_response', (data: Object) => observer.next(data));
         });
     }
     public onEvent(event: Event): Rx.Observable<any> {
